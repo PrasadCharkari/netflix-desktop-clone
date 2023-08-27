@@ -1,0 +1,64 @@
+
+$bg: rgb(16, 16, 16);
+
+.header {
+    height: 80px;
+    background-color: $bg;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    justify-content: space-between;
+  
+     > img {
+      height: 2rem;
+      
+      
+    }
+    
+    > div {
+      width: 100%;
+      margin-left: 2vmax;
+      > a {
+        margin: 1.25vmax;
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+    }
+    > svg {
+      color: whitesmoke;
+      font-size: 2rem;
+      cursor: pointer;
+
+      
+  
+      &:hover {
+        color: rgb(216, 216, 216);
+      }
+    }
+  }
+  
+
+  @media screen and (max-width: 600px){
+    
+   
+    
+     .links {
+      display: none;
+    }
+
+    .header > svg{
+      font-size: 1.5rem;
+      
+    }
+  }
+
+  @media screen and (max-width: 500px){
+    .header > img{
+      height:1.6rem;
+     } 
+    > svg{
+      font-size: 0.5rem;
+      
+    }
+  }
