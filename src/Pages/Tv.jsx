@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BiPlay } from "react-icons/bi";
 import { AiOutlinePlus } from "react-icons/ai";
-
-
+import Row from "../Components/Row";
 
 const apiKey = "8e834877d3687bad9ae0275838524cb9";
 const url = "https://api.themoviedb.org/3";
@@ -12,20 +11,6 @@ const upcoming = "upcoming";
 const nowPlaying = "now_playing";
 const popular = "popular";
 const topRated = "top_rated";
-
-const Card = ({ img }) => <img className="card" src={img} alt="cover" />;
-
-const Row = ({ title, arr = [] }) => (
-  <div className="row">
-    <h2>{title}</h2>
-
-    <div>
-      {arr.map((item, index) => (
-        <Card key={index} img={`${imgUrl}/${item.poster_path}`} />
-      ))}
-    </div>
-  </div>
-);
 
 const Tv = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
@@ -43,7 +28,9 @@ const Tv = () => {
     const fetchNowPlaying = async () => {
       const {
         data: { results },
-      } = await axios.get(`${url}/movie/${nowPlaying}?api_key=${apiKey}&page=5`);
+      } = await axios.get(
+        `${url}/movie/${nowPlaying}?api_key=${apiKey}&page=5`
+      );
       setNowPlayingMovies(results);
     };
     const fetchPopular = async () => {
@@ -66,7 +53,7 @@ const Tv = () => {
   }, []);
 
   return (
-    <section className="home" style={{backgroundColor:"black"}}>
+    <section className="home" style={{ backgroundColor: "black" }}>
       <div
         className="banner"
         style={{
@@ -89,7 +76,7 @@ const Tv = () => {
           </button>
         </div>
       </div>
-      
+
       <Row title={"Now Playing"} arr={nowPlayingMovies} />
       <Row title={"Popular"} arr={popularMovies} />
       <Row title={"Upcoming"} arr={upcomingMovies} />
