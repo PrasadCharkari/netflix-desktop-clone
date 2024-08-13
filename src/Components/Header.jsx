@@ -5,15 +5,10 @@ import { ImSearch } from "react-icons/im";
 import { AiFillCaretDown } from "react-icons/ai";
 import "./Header.scss";
 
-
-
-
 const Header = () => {
-  // let dropdownstyle = {marginRight:"12.5rem", fontSize:"1rem",color:"gray"}
   return (
     <nav className="header">
       <img src={logo} alt="logo" />
-      {/* <AiFillCaretDown style={dropdownstyle}/> */}
       <div className="links">
         <Link to="/">Home</Link>
         <Link to="/tvshows">TV Shows</Link>
